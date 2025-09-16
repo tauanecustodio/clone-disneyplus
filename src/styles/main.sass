@@ -1,4 +1,41 @@
-$bgColor: blue
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
 
-body 
-    background: $bgColor
+$corDeFundo: #040714
+$corTextoPrincipal: #c0c0c0
+$corTextoSecundario: #f9f9f9
+
+body
+    background-color: $corDeFundo
+
+@mixin text($fontSize: 16px, $color: $corTextoPrincipal)
+    font-size: $fontSize
+    line-height: $fontSize + 10px
+    color: $color
+
+@mixin title($fontSize: 40px)
+    @include text($fontSize, $corTextoSecundario)
+
+// text 
+.text--small
+    @include text(12px)
+.text
+    @include text
+.text--big
+    @include text(18px)
+
+// title 
+.title--small
+    @include title(28px)
+.title
+    @include title
+.title--big
+    @include title(44px)
+
+// others 
+.link-text 
+    @include text(18px)
+    color: $corTextoSecundario
+    text-decoration: underline
