@@ -1,22 +1,21 @@
+@use 'variaveis'
+@use 'hero'
+    
 *
     margin: 0
     padding: 0
     box-sizing: border-box
 
-$corDeFundo: #040714
-$corTextoPrincipal: #c0c0c0
-$corTextoSecundario: #f9f9f9
-
 body
-    background-color: $corDeFundo
+    background-color: variaveis.$corDeFundo
 
-@mixin text($fontSize: 16px, $color: $corTextoPrincipal)
+@mixin text($fontSize: 16px, $color: variaveis.$corTextoPrincipal)
     font-size: $fontSize
     line-height: $fontSize + 10px
     color: $color
 
 @mixin title($fontSize: 40px)
-    @include text($fontSize, $corTextoSecundario)
+    @include text($fontSize, variaveis.$corTextoSecundario)
 
 // text 
 .text--small
@@ -37,5 +36,5 @@ body
 // others 
 .link-text 
     @include text(18px)
-    color: $corTextoSecundario
+    color: variaveis.$corTextoSecundario
     text-decoration: underline
