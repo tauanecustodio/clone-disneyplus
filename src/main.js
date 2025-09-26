@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('[data-tab-button]');
+    const questions = document.querySelectorAll('[data-faq-question]');
     
     buttons.forEach(el => {
         el.addEventListener('click', () => {
@@ -12,6 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
             aba.classList.add('shows__list--is-active');
             el.classList.add('shows__tabs__button--is-active')
         })
+    })
+
+    questions.forEach(el => {
+        el.addEventListener('click', abreOuFechaResposta);
     })
 })
 
@@ -28,4 +33,11 @@ function removeButtonAtivo() {
     buttons.forEach(el => {
         el.classList.remove('shows__tabs__button--is-active')
     })
+}
+
+function abreOuFechaResposta(elemento) {
+    const classe = 'faq__questions__item--is-open';
+    const elementoPai = elemento.target.parentNode;
+
+    elementoPai.classList.toggle(classe);
 }
